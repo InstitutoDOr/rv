@@ -22,8 +22,8 @@ function openMap(settings, extraOptions) {
             if (e.latlng !== undefined && !answered ){
                 answered = true;
                 var posClick = [e.latitude, e.longitude];
-                markers.push( window.WE.marker(randomPos, '../assets/imgs/marker-blue.png').addTo(earth) );
-                markers.push( window.WE.marker(posClick, '../assets/imgs/marker-green.png').addTo(earth) );
+                markers.push( window.WE.marker(randomPos, 'https://institutodor.github.io/rv/assets/imgs/marker-blue.png').addTo(earth) );
+                markers.push( window.WE.marker(posClick, 'https://institutodor.github.io/rv/assets/imgs/marker-green.png').addTo(earth) );
                 //earth.setView(extraOptions.initial);
                 earth.panTo(randomPos);
                 
