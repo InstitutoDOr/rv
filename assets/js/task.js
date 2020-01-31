@@ -30,6 +30,8 @@ function openMap(settings, extraOptions) {
                 extraOptions.onDoubleClick(posClick[0], posClick[1]);
             }
         });
+    } else {
+        resetMap(settings, extraOptions);
     }
 }
 
