@@ -22,7 +22,7 @@ function openMap(settings, extraOptions) {
             if (e.latlng !== undefined && !answered ){
                 answered = true;
                 var posClick = [e.latitude, e.longitude];
-                markers.push( window.WE.marker(randomPos, 'https://institutodor.github.io/rv/assets/imgs/marker-blue.png').addTo(earth) );
+                markers.push( window.WE.marker(randomPos, 'https://institutodor.github.io/rv/assets/imgs/marker-red-x.png').addTo(earth) );
                 markers.push( window.WE.marker(posClick, 'https://institutodor.github.io/rv/assets/imgs/marker-green.png').addTo(earth) );
                 //earth.setView(extraOptions.initial);
                 earth.panTo(randomPos);
@@ -41,6 +41,7 @@ function resetMap(settings, extraOptions){
     }
 
     earth.setView(settings.center);
+    earth.setZoom(2);
     randomPos = extraOptions.initial;
     earth.da.P.m.forEach( (idx) => { 
         var mk = earth.da.P.O[idx]
