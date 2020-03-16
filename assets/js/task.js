@@ -2,8 +2,11 @@ var earth = null;
 var markers = [];
 var answered = false;
 var randomPos = [0,0];
+var markerRandom = 'https://institutodor.github.io/rv/assets/imgs/target.png';
+var markerClick  = 'https://institutodor.github.io/rv/assets/imgs/click.png';
 
 function openMap(settings, extraOptions) {
+    console.log(settings)
     if (earth === null) {
         earth = new window.WE.map('earth_div', settings);
         randomPos = extraOptions.initial;
@@ -22,8 +25,8 @@ function openMap(settings, extraOptions) {
             if (e.latlng !== undefined && !answered ){
                 answered = true;
                 var posClick = [e.latitude, e.longitude];
-                markers.push( window.WE.marker(randomPos, 'https://institutodor.github.io/rv/assets/imgs/target.png').addTo(earth) );
-                markers.push( window.WE.marker(posClick, 'https://institutodor.github.io/rv/assets/imgs/click.png').addTo(earth) );
+                markers.push( window.WE.marker(randomPos, markerRandom).addTo(earth) );
+                markers.push( window.WE.marker(posClick, markerClick).addTo(earth) );
                 //earth.setView(extraOptions.initial);
                 earth.panTo(randomPos);
                 
@@ -41,7 +44,9 @@ function resetMap(settings, extraOptions){
     }
 
     //earth.setView(settings.center);
-    earth.setZoom(2);
+    //earth.setZoom(2);
+    //earth.setAltitude(20000000);
+    earth.setAltitude(settings.altitude);
     randomPos = extraOptions.initial;
     earth.da.P.m.forEach( (idx) => { 
         var mk = earth.da.P.O[idx]
